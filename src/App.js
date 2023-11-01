@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { DailyPage, LoginPage, MainPage, MorePage, RecomPage } from 'pages';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const AppDiv = styled.div`
+	width: 100%;
+	min-width: 320px;
+	max-width: 480px;
+	height: 100vh;
+	overflow-x: hidden;
+	margin: auto;
+`;
+
+const App = () => {
+	return (
+		<BrowserRouter>
+			<AppDiv className="App">
+				<Routes>
+					<Route path="/" element={<MainPage />}></Route>
+					<Route path="/login" element={<LoginPage />}></Route>
+					<Route path="/recommend" element={<RecomPage />}></Route>
+					<Route path="/daily" element={<DailyPage />}></Route>
+					<Route path="/more" element={<MorePage />}></Route>
+				</Routes>
+			</AppDiv>
+		</BrowserRouter>
+	);
+};
 
 export default App;

@@ -1,13 +1,81 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-use-select: none;
+	user-select: none;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input[type='radio'] {
+	display: none;
+}
+
+.on {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #687084;
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translate(-50%, -50%);
+}
+
+input[type='radio']:checked + .on {
+	background: #fff;
+	border: 2px solid #ff730f;
+}
+
+.on:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+input[type='radio']:checked + .on:after {
+	display: block;
+}
+
+.on:after {
+	width: 12px;
+	height: 12px;
+	background: #ff730f;
+	border-radius: 50%;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+select {
+	-webkit-appearance: none; /* 크롬 화살표 없애기 */
+	-moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+	appearance: none; /* 화살표 없애기 */
+}
+
+@font-face {
+	font-family: 'BoldFont';
+	src: url('assets/fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'MediumFont';
+	src: url('assets/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'RegularFont';
+	src: url('assets/fonts/NotoSansKR-Regular.otf') format('opentype');
 }
