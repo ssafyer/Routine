@@ -68,7 +68,7 @@ function SignupStep3() {
                     <h2>기본 정보</h2>
                     <div className="default__gender">
                         <h3>성별</h3>
-                        <div className="gender__wrap">
+                        <div className="radio__wrap">
                             <label className={gender=='F' ? 'inputType1 active':'inputType1'} onClick={() => handleGender('F')}>
                                 <input type="radio" name="gender" />
                                 <span>여성</span>

@@ -8,8 +8,8 @@ function SignupStep1() {
 
     return (
         <>
-            <button className="btn__back">
-                <img src={imgBack} alt="뒤로가기" onClick={() => navigate(-1)} />
+            <button className="btn__back" onClick={() => navigate(-1)}>
+                <img src={imgBack} alt="뒤로가기" />
             </button>
             <div className="page__signup step1">
                 <div className="step__number">

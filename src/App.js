@@ -12,6 +12,7 @@ import Main from 'pages/Main';
 import SignupStep1 from 'pages/Signup_step1';
 import SignupStep2 from 'pages/Signup_step2';
 import SignupStep3 from 'pages/Signup_step3';
+import AddRoutine from 'pages/Add_routine';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signup_step1" element={<SignupStep1 />}  />
           <Route path="/signup_step2" element={<SignupStep2 />}  />
           <Route path="/signup_step3" element={<SignupStep3 />}  />
+          <Route path="/add_routine" element={<AddRoutine />}  />
         </Routes>
       </Wrapper>
     </BrowserRouter>

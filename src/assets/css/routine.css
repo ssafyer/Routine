@@ -1,0 +1,99 @@
+@charset "utf-8";
+.header__routine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 25px;
+}
+.header__routine .btn__back {
+    position: absolute;
+    left: 0;
+}
+.header__routine h1 {
+    font-size:26px;
+    font-weight: bold;
+    color:var(--TEXT-COLOR2);
+}
+.page__add__routine {}
+.page__add__routine .radio__wrap {
+    margin-bottom: 10px;
+}
+
+.formbox.timepicker {
+    padding-bottom: 25px;
+}
+.formbox.timepicker .timepickerLabel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100px;
+}
+.formbox.timepicker .timepickerLabel label {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.formbox.timepicker .timepickerLabel label input {
+    position: fixed;
+    left: -9999px;
+}
+.formbox.timepicker .timepickerLabel label span {
+    color:var(--TEXT-COLOR3);
+    font-size:14px;
+    padding-left: 5px;
+}
+.formbox.timepicker .timepickerLabel label.active span {
+    color:var(--TEXT-COLOR4);
+}
+.formbox.timepicker .timepickerLabel label i {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/ico_radio_off.svg) 50% /contain no-repeat;
+}
+.formbox.timepicker .timepickerLabel label.active i {
+    background: url(../images/ico_radio_on.svg) 50% /contain no-repeat;
+}
+.formbox.timepicker .timepickerLabel label:first-child {
+    margin-bottom: 30px;
+}
+
+.formbox.timepicker .timepickerbox {
+    width: calc(100% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.formbox.timepicker .timepickerbox>div button {
+    display: block;
+}
+.formbox.timepicker .timepickerbox .bg {
+    background: var(--BACK-COLOR7);
+}
+.rolldate-container .rolldate-btn{
+    top: 20px;
+}
+.rolldate-btn,
+.rolldate-container .wheel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timepicker__outer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.timepicker {
+    position: relative;
+}
+.timepicker img {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}

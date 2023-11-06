@@ -68,3 +68,13 @@ body * {
     font-weight: 600;
     line-height: 1.4;
 }
+
+.h20 {
+	height: 20px !important;
+}
+.h25 {
+	height: 25px !important;
+}
+.h30 {
+	height: 30px !important;
+}

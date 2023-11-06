@@ -15,11 +15,10 @@
     --BACK-COLOR4:#FAFAFA;
     --BACK-COLOR5:#FFF2D0;
     --BACK-COLOR6:#D4D4D4;
+    --BACK-COLOR7:#FFEEC2;
 
     --ERROR-COLOR:#FF5C00;
-
     --KAKAO-COLOR:#FFD600;
-
     --POINT-COLOR1:#F9CD5C;
 }
 .wrapper {
@@ -52,6 +51,21 @@
     border:0;
     background: var(--BACK-COLOR4);
 }
+.radio__wrap span {
+    font-size:14px;
+    color:var(--TEXT-COLOR4);
+}
+.radio__wrap input {
+    position: fixed;
+    left:-9999px;
+}
+.radio__wrap label.active {
+    background: var(--MAIN-COLOR1);
+}
+.radio__wrap label.active span {
+    color:#fff;
+}
+
 .w100 {
     width: 100%;
 }
@@ -70,6 +84,7 @@ button.inputType1 {
 }
 button.fakeSelect {
     width:220px;
+    position: relative;
 }
 .fakeSelect {
     border-radius: 16px;

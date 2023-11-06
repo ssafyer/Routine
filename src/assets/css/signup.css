@@ -171,28 +171,14 @@
     color:var(--TEXT-COLOR4);
     margin-bottom: 15px;
 }
-.page__signup.step3 .gender__wrap {
+.radio__wrap {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0 20px;
+    gap: 0 15px;
     margin-bottom: 20px;
 }
-.page__signup.step3 .gender__wrap label {}
-.page__signup.step3 .gender__wrap span {
-    font-size:14px;
-    color:var(--TEXT-COLOR4);
-}
-.page__signup.step3 .gender__wrap input {
-    position: fixed;
-    left:-9999px;
-}
-.page__signup.step3 .gender__wrap label.active {
-    background: var(--MAIN-COLOR1);
-}
-.page__signup.step3 .gender__wrap label.active span {
-    color:#fff;
-}
+
 .formbox .add__call:nth-of-type(1) {
     margin-bottom: 20px;
 }
