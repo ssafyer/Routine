@@ -97,3 +97,48 @@
     right: 10px;
     top: 5px;
 }
+.alarmlist {}
+.alarmlist li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.alarmlist li .left {}
+.alarmlist li .left span {
+    color:var(--BACK-COLOR1);
+}
+.alarmlist li .left img {}
+.alarmlist li .right {}
+.alarmlist li .right .toggleSwitch {
+    width: 32px;
+    height: 18px;
+    border-radius: 9px;
+    background: var(--BACK-COLOR6);
+    padding: 2px;
+    position: relative;
+}
+.alarmlist li .right .toggleSwitch span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-block;
+    transition-duration: .2s;
+    position: absolute;
+    top:2px;
+    left:2px;
+}
+.alarmlist li .right .toggleSwitch.active {
+    background: var(--MAIN-COLOR1);
+}
+.alarmlist li .right .toggleSwitch.active span {
+    left:16px
+}
+
+.btn__write__memo {
+    background: none;
+}
+.btn__write__memo img {
+    margin-left: 12px;
+}

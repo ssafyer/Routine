@@ -107,7 +107,7 @@
 .page__signup.step1 h2 {
     margin-top: 30px;
 }
-.page__signup .btn__next {
+.btn__next {
     width: 100%;
     display: block;
     text-align: center;
@@ -120,7 +120,7 @@
     font-size:18px;
     font-weight: bold;
 }
-.page__signup .btn__next.active {
+.btn__next.active {
     background: var(--MAIN-COLOR1);
 }
 

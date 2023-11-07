@@ -4,6 +4,8 @@ import icoQuestion from '../assets/images/ico_question.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import TimePicker from 'components/include/TimePicker';
 import icoArrow from '../assets/images/Arrow.svg'
+import icoArrow2 from '../assets/images/RightArrow2.svg'
+import ToggleSwitch from 'components/include/ToggleSwitch';
 
 const routineData = [
     '주중',
@@ -71,12 +73,12 @@ function AddRoutine() {
                     <div className="timepicker__outer">
                         <div className="timepickerLabel">
                             <label className={timeKind==0?'active':''} onClick={() => setTimeKind(0)}>
-                                <input type="radio" name='timeKind' checked={timeKind==0?true:false} />
+                                <input type="radio" name='timeKind' defaultChecked={timeKind==0?true:false} />
                                 <i></i>
                                 <span>임의 시작</span>
                             </label>
                             <label className={timeKind==1?'active':''} onClick={() => setTimeKind(1)}>
-                                <input type="radio" name='timeKind'  checked={timeKind==1?true:false} />
+                                <input type="radio" name='timeKind' defaultChecked={timeKind==1?true:false} />
                                 <i></i>
                                 <span>시간 설정</span>
                             </label>
@@ -89,18 +91,16 @@ function AddRoutine() {
 
                 <div className="h25"></div>
 
-                <div className="formbox timepicker">
+                <div className="formbox">
                     <h2>알림</h2>
-                    <ul>
+                    <ul className='alarmlist'>
                         <li>
                             <div className="left">
                                 <span>알림 받기</span>
                                 <img src={icoQuestion} alt="알림" />
                             </div>
                             <div className="right">
-                                <div className="toggleSwitch">
-                                    <span></span>
-                                </div>
+                                <ToggleSwitch />
                             </div>
                         </li>
                         <li>
@@ -130,12 +130,17 @@ function AddRoutine() {
                             <div className="left">
                                 <span>알림 메모</span>
                             </div>
-                            <div className="right"></div>
+                            <div className="right">
+                                <button className='btn__write__memo'>
+                                    <span>알림과 함께 읽을 메모 입력</span>
+                                    <img src={icoArrow2} alt="입력" />
+                                </button>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
-                <Link to="/" className='btn__next active'>
+                <Link to="/" className='btn__next'>
                     완료
                 </Link>
             </div>

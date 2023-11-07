@@ -25,10 +25,10 @@ const TimePicker = () => {
         pm: '오후'
       },
       init: function() {
-        console.log('Rolldate init');
+        // console.log('Rolldate init');
       },
       moveEnd: function(scroll) {
-        console.log('Rolldate moveEnd', scroll);
+        // console.log('Rolldate moveEnd', scroll);
       },
       confirm: function(date) {
         const [hours, minutes] = date.split(':');
