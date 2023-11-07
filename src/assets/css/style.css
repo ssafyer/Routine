@@ -21,6 +21,9 @@
     --KAKAO-COLOR:#FFD600;
     --POINT-COLOR1:#F9CD5C;
 }
+.mainColor {
+    color:var(--MAIN-COLOR1) !important
+}
 .wrapper {
 	max-width:480px;
 	margin:0 auto;
@@ -31,10 +34,14 @@
 	min-height: 100vh;
 }
 .formbox {
+    position: relative;
     background: var(--BACK-COLOR4);
     border-radius: 16px;
     box-shadow: 3px 3px 8px 4px rgba(0,0,0,0.08);
     padding: 16px 25px 14px 11px;
+}
+.formbox.disabled * {
+    opacity: 0.6;
 }
 .formbox h2 {
     font-size:15px;
@@ -124,6 +131,33 @@ button.fakeSelect {
     width: 100%;
     padding: 5px 0;
 }
+
+/* radioCommonLabel */
+.radioCommonLabel input[type='radio'] {
+    position: fixed;
+    left:-9999px;
+}
+.formbox.actionType {
+    padding:16px 16px 25px;
+}
+.radioCommonLabel {
+    gap: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.radioCommonLabel label span {
+    color:var(--TEXT-COLOR4);
+}
+
+.radioCommonLabel label.active {
+    background: var(--MAIN-COLOR1);
+}
+.radioCommonLabel label.active span {
+    color:#fff;
+}
+
+
 /* navbar */
 .navbar {
     width: 100%;
@@ -195,4 +229,72 @@ button.fakeSelect {
 @keyframes slideIn {
     0% {}
     100% {}
+}
+
+/* toggleSwitch */
+.toggleSwitch {
+    width: 32px;
+    height: 18px;
+    border-radius: 9px;
+    background: var(--BACK-COLOR6);
+    padding: 2px;
+    position: relative;
+}
+.toggleSwitch span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-block;
+    transition-duration: .2s;
+    position: absolute;
+    top:2px;
+    left:2px;
+}
+.toggleSwitch.active {
+    background: var(--MAIN-COLOR1);
+}
+.toggleSwitch.active span {
+    left:16px
+}
+
+
+
+.popup__question__info {
+    position: absolute;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
+    padding: 15px;
+    width: 293px;
+    z-index: 1;
+    top:40px;
+    left:25px;
+}
+.popup__question__info__inner {
+    position: relative;
+}
+.popup__question__info:before {
+    content:'';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 1px;
+    position: absolute;
+    top: -7px;
+    left: 30px;
+    background: #fff;
+    box-shadow:-2px -2px 4px rgba(0,0,0,0.05);
+    z-index: 0;
+    transform:rotate(45deg) skew(15deg, 15deg);
+}
+.popup__question__info h4 {
+    font-size:15px;
+    margin-bottom: 10px;
+}
+.popup__question__info p {
+    font-size:14px;
+    color:var(--TEXT-COLOR4);
+    letter-spacing: -0.5px;
+    line-height: 1.6;
 }

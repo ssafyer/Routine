@@ -2,20 +2,20 @@
 .header__routine {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     margin-bottom: 25px;
 }
 .header__routine .btn__back {
     position: absolute;
     left: 0;
+    top: 5px;
 }
 .header__routine h1 {
     font-size:26px;
     font-weight: bold;
-    color:var(--TEXT-COLOR2);
+    color:var(--TEXT-COLOR1);
 }
-.page__add__routine {}
 .page__add__routine .radio__wrap {
     margin-bottom: 10px;
 }
@@ -29,6 +29,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100px;
+    margin-bottom: 5px;
 }
 .formbox.timepicker .timepickerLabel label {
     width: 100%;
@@ -65,7 +66,7 @@
 .formbox.timepicker .timepickerbox {
     width: calc(100% - 100px);
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 .formbox.timepicker .timepickerbox>div button {
@@ -73,6 +74,10 @@
 }
 .formbox.timepicker .timepickerbox .bg {
     background: var(--BACK-COLOR7);
+}
+.formbox.timepicker .timepickerbox .inputType1 {
+    width: 220px;
+    height: 38px;
 }
 .rolldate-container .rolldate-btn{
     top: 20px;
@@ -83,7 +88,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .timepicker__outer{
     display: flex;
     justify-content: space-between;
@@ -92,9 +96,12 @@
 .timepicker {
     position: relative;
 }
+.timepicker .inputType1 {
+    color:var(--TEXT-COLOR4);
+}
 .timepicker img {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 5px;
 }
 .alarmlist {}
@@ -104,41 +111,341 @@
     align-items: center;
     margin-bottom: 15px;
 }
-.alarmlist li .left {}
-.alarmlist li .left span {
-    color:var(--BACK-COLOR1);
-}
-.alarmlist li .left img {}
-.alarmlist li .right {}
-.alarmlist li .right .toggleSwitch {
-    width: 32px;
-    height: 18px;
-    border-radius: 9px;
-    background: var(--BACK-COLOR6);
-    padding: 2px;
+.alarmlist li .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     position: relative;
 }
-.alarmlist li .right .toggleSwitch span {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #fff;
-    display: inline-block;
-    transition-duration: .2s;
-    position: absolute;
-    top:2px;
-    left:2px;
+.alarmlist li .left span {
+    color:var(--BACK-COLOR1);
+    font-size:14px;
 }
-.alarmlist li .right .toggleSwitch.active {
-    background: var(--MAIN-COLOR1);
-}
-.alarmlist li .right .toggleSwitch.active span {
-    left:16px
-}
-
 .btn__write__memo {
     background: none;
 }
 .btn__write__memo img {
     margin-left: 12px;
+}
+
+.checkbox__wrap__day {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    gap: 7px;
+}
+.checkbox__wrap__day label {
+    border: 1px solid var(--TEXT-COLOR3);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkbox__wrap__day label.active {
+    border:1px solid var(--MAIN-COLOR1);
+}
+.checkbox__wrap__day label input {
+    position: fixed;
+    left:-9999px;
+}
+.checkbox__wrap__day label span {
+    color:var(--TEXT-COLOR3);
+    font-size:15px;
+    position: relative;
+    top: 1px;
+}
+.checkbox__wrap__day label.active span {
+    color:var(--MAIN-COLOR1);
+}
+.routineTime {
+    padding:18px 13px;
+}
+.popup.btm {
+    top:100%;
+    align-items: flex-end;
+}
+.popup.btm.active {
+    top: 0;
+}
+.popup.btm .content {
+    top: 100%;
+}
+.popup.btm.active .content {
+    top: 0;
+}
+.popup.btm .bg {
+    opacity: 0;
+}
+.popup.btm.active .bg {
+    opacity: 1;
+}
+.popup.btm .bg {
+    transition-duration: .5s;
+}
+.popup.btm .content {
+    z-index: 1;
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+    padding: 30px 25px 55px;
+    transition-duration: .5s;
+}
+.popup.btm .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 25px;
+}
+.popup.btm .head h5 {
+    font-size:20px;
+    color:var(--TEXT-COLOR1);
+}
+.popup.btm .head .btn__close {
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.popup.writeMemo.btm .content .body {
+    text-align: center;
+}
+.popup.writeMemo .content .body h6 {
+    font-size:16px;
+    margin-bottom: 50px;
+    color:var(--TEXT-COLOR4);
+}
+.popup.writeMemo .content .body textarea {
+    border-radius: 16px;
+    width: 100%;
+    height:216px;
+    border: 0;
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+    background: var(--BACK-COLOR4);
+    padding: 15px 10px;
+    font-size:15px;
+    resize:none;
+    margin-bottom: 40px;
+}
+
+.popup.writeMemo .content .body .btnbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+.popup.writeMemo .content .body .btnbox button {
+    width:57px;
+    height:34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    font-size:14px;
+}
+
+.popup.writeMemo .content .body .btnbox button.active {
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+}
+
+/* action */
+.page__add__action {}
+.page__add__action .actiontime {
+    color:#fff;
+    font-size:14px;
+    margin:0 auto;
+    background: var(--MAIN-COLOR1);
+    width: 140px;
+    text-align: center;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+.action__btnbox {
+    margin-top: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.action__btnbox button {
+    font-size:14px;
+    color:var(--TEXT-COLOR4);
+}
+.action__none {
+    margin-top: 160px;
+    margin-bottom: 160px;
+    text-align: center;
+    font-size:14px;
+    line-height: 1.6;
+    color:var(--BACK-COLOR1);
+}
+.btn__next.play {
+    width: auto;
+    min-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+}
+
+.editbox {
+    margin-top: 30px;
+}
+.editbox button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--BACK-COLOR4);
+    margin-bottom: 15px;
+    border-radius: 16px;
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,.08);
+    padding: 15px 15px 15px 20px;
+}
+
+.editbox button span {
+    font-size:14px;
+}
+
+.editbox button img {
+    width:24px;
+}
+.editbox .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editbox .left span {
+    color:var(--TEXT-COLOR4);
+}
+.editbox .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn__next.comment {
+    max-width:220px;
+    margin:0 auto;
+    border-radius: 20px;
+    padding: 9px 0;
+    margin-top: 120px;
+    box-shadow: none;
+}
+.btn__next.comment span {
+    color:#fff;
+    font-size:14px;
+}
+.popup.ended.isRemove .content {
+    height:183px;
+}
+.popup.ended.isRemove .content p {
+    padding:15px 0 35px
+}
+.popup.actionRecommand {}
+.popup.actionRecommand .content {
+    height: calc(100vh - 70px);
+}
+.popup.actionRecommand .action__category {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    overflow-x:auto;
+    padding: 10px 0;
+}
+.popup.actionRecommand .action__category label {
+    padding: 7px 15px;
+    font-size:14px;
+    color:var(--TEXT-COLOR4);
+    white-space: nowrap;
+}
+.popup.actionRecommand .action__category label.active {
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+    border-radius: 16px;
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+}
+.popup.actionRecommand .action__category input {
+    position: fixed;
+    left:-9999px;
+}
+
+.popup.actionRecommand .action__list {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    height:calc(100vh - 210px);
+    overflow:auto;
+}
+.popup.actionRecommand .action__list button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow:3px 3px 8px 3px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+    background: var(--BACK-COLOR4);
+}
+.popup.actionRecommand .action__list button img {
+    height:36px;
+    margin-right: 5px;
+}
+.action__list span {
+    color:var(--TEXT-COLOR4);
+}
+
+.header__routine.action {}
+.header__routine.action .imgAction {
+    background: var(--BACK-COLOR7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 120px;
+    border-radius: 10px;
+}
+.header__routine.action .imgAction img {
+    width: 67px;
+}
+.header__routine.action .centerbox {
+    text-align: center;
+}
+.header__routine.action .centerbox h1 {
+    margin-top: 16px;
+    color:var(--TEXT-COLOR2);
+}
+
+.btn__recommand__action {
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+    padding: 8px 0;
+    width: 84px;
+    position: absolute;
+    right: 0;
+    border-radius: 16px;
+    box-shadow: 3px 3px 8px 4px rgba(0,0,0,0.08);
+}
+.formbox h2.addIco {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.formbox h2.addIco b {
+    font-size:15px;
+}
+.formbox .settime img {
+    padding-left:10px;
+}
+.formbox.paddingCommon {
+    padding: 15px;
 }
