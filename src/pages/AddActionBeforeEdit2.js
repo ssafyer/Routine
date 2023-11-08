@@ -4,9 +4,13 @@ import imgAction from '../assets/images/img_action.png'
 import { Link, useNavigate } from 'react-router-dom';
 import icoQuestion from '../assets/images/ico_question.svg'
 import icoArrow2 from '../assets/images/RightArrow2.svg'
+import emoji1 from '../assets/images/emoji1.svg'
+import emoji2 from '../assets/images/emoji2.svg'
+import emoji3 from '../assets/images/emoji3.svg'
 import ToggleSwitch from 'components/include/ToggleSwitch';
 import PopupQuestionInfo from 'components/include/PopupQuestionInfo';
 import TimePickerHour from 'components/include/TimePickerHour';
+import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
 
 const actionData = [
     '완료 체크',
@@ -14,12 +18,44 @@ const actionData = [
     '몰입도 확인',
 ]
 
+
+const categoryData = [
+    '전체',
+    '아침',
+    '저녁',
+    '집중 시간',
+    '건강',
+    '건강',
+    '건강',
+    '건강',
+]
+
+const emojiData = [
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+]
+
+
 function AddActionAfterEdit2() {
     const navigate = useNavigate()
     const [actionType, setActionType] = useState(null);
     const [ended, setEnded] = useState(false); // 최종 완료 버튼
     const [showActionTypePopup, setShowActionTypePopup] = useState(false);
     const [showAutoPopup, setShowAutoPopup] = useState(false);
+    const [isShowEmojiPopup, setIsShowEmojiPopup] = useState(false);
+    const [categoryChoice, setCategoryChoice] = useState(0);
+    const [toggleSwitchValue1, setToggleSwitchValue1] = useState(false);
+    const [toggleSwitchValue2, setToggleSwitchValue2] = useState(false);
 
     useEffect(() => {
 
@@ -32,7 +68,7 @@ function AddActionAfterEdit2() {
                     <img src={imgBack} alt="뒤로가기" />
                 </button>
                 <div className="centerbox">
-                    <div className='imgAction'>
+                    <div className='imgAction' onClick={() => setIsShowEmojiPopup(true)}>
                         <img src={imgAction} alt="img" />
                     </div>
                     <h1>행동 이름</h1>
@@ -103,14 +139,14 @@ function AddActionAfterEdit2() {
                         isShow={showAutoPopup}
                         setIsShow={setShowAutoPopup}
                     />
-                    <ToggleSwitch />
+                    <ToggleSwitch switchValue={toggleSwitchValue1} setSwitchValue={setToggleSwitchValue1} />
                 </div>
 
                 <div className="h25"></div>
 
                 <div className="formbox flexBetween paddingCommon">
                     <h2>완료 알림</h2>
-                    <ToggleSwitch />
+                    <ToggleSwitch switchValue={toggleSwitchValue2} setSwitchValue={setToggleSwitchValue2} />
                 </div>
 
 
@@ -125,6 +161,36 @@ function AddActionAfterEdit2() {
                         </Link>
                     )
                 }
+
+                <PopupBtmWrapper
+                    className={'emoji'}
+                    isShow={isShowEmojiPopup}
+                    setIsShow={setIsShowEmojiPopup}
+                >
+                    <div className="action__category">
+                        {
+                            categoryData.map((item, index) =>
+                                <label
+                                    key={index}
+                                    className={categoryChoice==index?'active':''}
+                                    onClick={() => setCategoryChoice(index)}
+                                >
+                                    <input type="radio" name="category" />
+                                    {item}
+                                </label>
+                            )
+                        }
+                    </div>
+                    <div className="emoji__outer">
+                        {
+                            emojiData.map((item,index) =>
+                                <div className="emoji__inner">
+                                    <img key={index} src={item} alt="emoji" />
+                                </div>
+                            )
+                        }
+                    </div>
+                </PopupBtmWrapper>
 
             </div>
         </>

@@ -127,7 +127,6 @@ function SignupStep3() {
 
             </div>
 
-            {/* popup */}
             {showPopup &&
                 <div className="popup ended">
                     <div className="content">

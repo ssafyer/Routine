@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+.page__exec {
+    text-align: center;
+    padding: 0 20px;
+}
+.page__exec .timeText {
+    font-size:50px;
+    font-weight: bold;
+    color:var(--TEXT-COLOR1);
+    margin:0 auto;
+    height: 70px;
+}
+.page__exec .subtimeText {
+    font-size:17px;
+    font-weight: 500;
+    color:var(--TEXT-COLOR3);
+    height: 25px;
+    margin-bottom: 70px;
+}
+.setEmojibox {
+    width: 240px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exec__btnbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+.exec__btnbox button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exec__btnbox button img {
+    width: 64px;
+}
+.text__nextroutine {
+    margin: 30px 0;
+    text-align: center;
+    font-size:15px;
+    color:var(--TEXT-COLOR2);
+    font-weight: 500;
+}
+.btnbtmbox {
+    background: var(--BACK-COLOR4);
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding:20px 0;
+    gap:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer__circle {
+    position: absolute;
+    top:40px;
+    left: -23px;
+}
+.timer__circle #circle-container {
+    position: relative;
+    border-radius: 50%;
+    border: 7px solid var(--BACK-COLOR7);
+    background-color: transparent;
+    width: 332px;
+    height: 332px;
+}
+.timer__circle #rotating-point {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--POINT-COLOR2);
+    width: 25px;
+    height: 25px;
+    top:-5%;
+    left:50%;
+}
+.header__routine.exec {
+    margin-bottom: 5px;
+}

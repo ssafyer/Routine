@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-function ToggleSwitch() {
-    const [isActive, setIsActive] = useState(false);
+function ToggleSwitch({ switchValue, setSwitchValue}) {
 
     return (
-        <div className={isActive?"toggleSwitch active":'toggleSwitch'} 
-        onClick={() => setIsActive(isActive?false:true)}>
+        <div className={switchValue?"toggleSwitch active":'toggleSwitch'} 
+            onClick={() => setSwitchValue(switchValue?false:true)}>
             <span></span>
         </div>
     );

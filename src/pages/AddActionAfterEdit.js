@@ -8,9 +8,10 @@ import imgEdit2 from '../assets/images/img_edit2.png'
 import imgEdit3 from '../assets/images/img_edit3.png'
 import icoTimer from '../assets/images/ico_timer.svg'
 import icoConcen from '../assets/images/ico_concen.svg'
-import popupClose from '../assets/images/popup__close.svg'
 import icoRemoveAction from '../assets/images/ico_remove_action.svg'
 import { Link, useNavigate } from 'react-router-dom';
+import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
+import PopupToast from 'components/include/PopupToast';
 
 
 const categoryData = [
@@ -158,62 +159,49 @@ function AddActionAfterEdit() {
 
                 {/* popup */}
                 {showPopup &&
-                    <div className="popup ended isRemove">
-                        <div className="content">
-                            <h3>행동을 삭제하시겠습니까?</h3>
-                            <p>
-                                한번 삭제된 행동은 복구할 수 없습니다.
-                            </p>
-
-                            <div className="btnbox">
-                                <Link onClick={() => setShowPopup(false)}>취소하기</Link>
-                                <Link to="/" className='add'>삭제하기</Link>
-                            </div>
-                        </div>
-                        <div className="bg" onClick={() => setShowPopup(false)}></div>
-                    </div>
+                    <PopupToast
+                        classname={'isRemove'}
+                        title={'행동을 삭제하시겠습니까?'}
+                        msg={'한번 삭제된 행동은 복구할 수 없습니다.'}
+                        btnLeft={'취소하기'}
+                        btnRight={'삭제하기'}
+                        isShow={showPopup}
+                        setIsShow={setShowPopup}
+                    />
                 }
 
 
-                {/*  */}
-                <div className={isShowActionPopup?"popup btm actionRecommand active":"popup btm actionRecommand"}>
-                    <div className="content">
-                        <div className="head">
-                            <button className='btn__close' onClick={() => setIsShowActionPopup(false)}>
-                                <img src={popupClose} alt="close" />
-                            </button>
-                        </div>
-
-                        <div className="action__category">
-                            {
-                                categoryData.map((item, index) =>
-                                    <label
-                                        key={index}
-                                        className={categoryChoice==index?'active':''}
-                                        onClick={() => setCategoryChoice(index)}
-                                    >
-                                        <input type="radio" name="category" />
-                                        {item}
-                                    </label>
-                                )
-                            }
-                        </div>
-
-                        <div className="action__list">
-                            {
-                                actionlistData.map((item, index) =>
-                                    <button>
-                                        <img src={item.img} alt="icon" />
-                                        <span>{item.name}</span>
-                                    </button>
-                                )
-                            }
-                        </div>
+                {/* 추천행동 팝업 */}
+                <PopupBtmWrapper
+                    className={'actionRecommand'}
+                    isShow={isShowActionPopup}
+                    setIsShow={setIsShowActionPopup}
+                >
+                    <div className="action__category">
+                        {
+                            categoryData.map((item, index) =>
+                                <label
+                                    key={index}
+                                    className={categoryChoice==index?'active':''}
+                                    onClick={() => setCategoryChoice(index)}
+                                >
+                                    <input type="radio" name="category" />
+                                    {item}
+                                </label>
+                            )
+                        }
                     </div>
-                    <div className="bg" onClick={() => setIsShowActionPopup(false)}></div>
-                </div>
-
-
+                    <div className="action__list">
+                        {
+                            actionlistData.map((item, index) =>
+                                <button>
+                                    <img src={item.img} alt="icon" />
+                                    <span>{item.name}</span>
+                                </button>
+                            )
+                        }
+                    </div>
+                </PopupBtmWrapper>
             </div>
         </>
     );

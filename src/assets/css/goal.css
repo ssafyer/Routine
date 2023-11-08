@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+
+/* 목표 */
+.goal__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 24px;
+
+}
+.goal__list .goal__item {
+    width:calc(50% - 12.5px);
+    background: var(--BACK-COLOR4);
+    border-radius: 16px;
+    padding: 15px 12px;
+    box-shadow: 3px 3px 8px 4px rgba(0,0,0,0.08);
+    position: relative;
+}
+.goal__list .goal__item img {
+    display: block;
+    margin:10px auto;
+}
+.goal__list .goal__item h6 {
+    font-size:14px;
+    color:var(--BACK-COLOR1);
+}
+.goal__list .goal__item b {
+    font-size:16px;
+    display: block;
+    width: 100%;
+}
+.goal__list .goal__item .btnbox {
+    gap: 17px;
+}
+.goal__list .goal__item .btnbox button {
+    background: var(--BACK-COLOR8);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.goal__list .goal__item .btnbox button:hover {
+    background: var(--MAIN-COLOR1);
+}
+.goal__list .goal__item .btnbox button:hover svg path,
+.goal__list .goal__item .btnbox button:hover svg rect {
+    fill:#fff;
+}
+.goal__list .btn__remove {
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    width: 22px;
+    height: 22px;
+    background: var(--MAIN-COLOR1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.goal__input__unit{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 23px;
+}
+.goal__input__unit input {
+    width: 180px;
+    font-size:13px;
+    color:var(--BACK-COLOR1)
+}
+.goal__input__unit input::placeholder{
+    color:var(--BACK-COLOR1)
+}
+.goal__input__unit button.fakeSelect {
+    height: 33px;
+    width: 113px;
+}
+.alramitems {
+    display: none;
+}
+.alramitems.active {
+    display: block;
+}

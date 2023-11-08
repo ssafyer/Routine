@@ -8,6 +8,8 @@ import icoArrow2 from '../assets/images/RightArrow2.svg'
 import popupClose from '../assets/images/popup__close.svg'
 import ToggleSwitch from 'components/include/ToggleSwitch';
 import PopupQuestionInfo from 'components/include/PopupQuestionInfo';
+import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
+import PopupToast from 'components/include/PopupToast';
 
 const routineData = [
     '주중',
@@ -41,6 +43,8 @@ function AddRoutine() {
     const [showAlarmPopup, setShowAlarmPopup] = useState(false); // 알람받기 팝업
     const [ended, setEnded] = useState(false); // 최종 완료 버튼
     const [showPopup, setShowPopup] = useState(false);
+    const [showEndedPopup, setShowEndedPopup] = useState(false);
+    const [toggleSwitchValue1, setToggleSwitchValue1] = useState(false);
 
     // 반복주기 클릭
     const handleRoutineType = (index) => {
@@ -165,7 +169,7 @@ function AddRoutine() {
                                 />
                             </div>
                             <div className="right">
-                                <ToggleSwitch />
+                                <ToggleSwitch switchValue={toggleSwitchValue1} setSwitchValue={setToggleSwitchValue1}  />
                             </div>
                         </li>
                         <li>
@@ -207,7 +211,7 @@ function AddRoutine() {
 
                 {
                     ended ? (
-                        <Link to="/" className='btn__next active'>
+                        <Link className='btn__next active' onClick={() => setShowEndedPopup(true)}>
                             완료
                         </Link>
                     ):(
@@ -217,27 +221,33 @@ function AddRoutine() {
                     )
                 }
 
-                <div className={showPopup?"popup btm writeMemo active":"popup btm writeMemo"}>
-                    <div className="content">
-                        <div className="head">
-                            <h5>메모 입력</h5>
-                            <button className='btn__close' onClick={() => setShowPopup(false)}>
-                                <img src={popupClose} alt="close" />
-                            </button>
-                        </div>
-                        <div className="body">
-                            <h6>알림과 함께 읽을 메모를 입력해주세요.</h6>
+                <PopupBtmWrapper
+                    className={'writeMemo'}
+                    isShow={showPopup}
+                    setIsShow={setShowPopup}
+                    title={'메모 입력'}
+                >
+                    <div className="body">
+                        <h6>알림과 함께 읽을 메모를 입력해주세요.</h6>
 
-                            <textarea placeholder='메모 입력'></textarea>
+                        <textarea placeholder='메모 입력'></textarea>
 
-                            <div className="btnbox">
-                                <button onClick={() => setShowPopup(false)}>취소</button>
-                                <button className='active'>완료</button>
-                            </div>
+                        <div className="btnbox">
+                            <button onClick={() => setShowPopup(false)}>취소</button>
+                            <button className='active'>완료</button>
                         </div>
                     </div>
-                    <div className="bg" onClick={() => setShowPopup(false)}></div>
-                </div>
+                </PopupBtmWrapper>
+
+                <PopupToast
+                    classname={''}
+                    title={'루틴 생성이 완료되었습니다.'}
+                    msg={'루틴 내 행동을 추가해야 루틴을 실천할 수 있습니다. 같이 행동을 추가해볼까요?'}
+                    btnLeft={'나중에하기'}
+                    btnRight={'행동 추가하기'}
+                    isShow={showEndedPopup}
+                    setIsShow={setShowEndedPopup}
+                />
             </div>
         </>
     );

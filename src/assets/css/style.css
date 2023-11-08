@@ -16,10 +16,12 @@
     --BACK-COLOR5:#FFF2D0;
     --BACK-COLOR6:#D4D4D4;
     --BACK-COLOR7:#FFEEC2;
+    --BACK-COLOR8:#E4E4E4;
 
     --ERROR-COLOR:#FF5C00;
     --KAKAO-COLOR:#FFD600;
     --POINT-COLOR1:#F9CD5C;
+    --POINT-COLOR2:#FFC123;
 }
 .mainColor {
     color:var(--MAIN-COLOR1) !important
@@ -80,6 +82,7 @@ button.inputType1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 34px;
 }
 .flexBetween{
     display: flex;
@@ -125,6 +128,7 @@ button.fakeSelect {
     position: absolute;
     width: 100%;
     top: 50px;
+    z-index: 1;
 }
 .fakeSelect__options span {
     display: block;
@@ -290,7 +294,7 @@ button.fakeSelect {
 }
 .popup__question__info h4 {
     font-size:15px;
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
 .popup__question__info p {
     font-size:14px;
