@@ -17,11 +17,13 @@
     --BACK-COLOR6:#D4D4D4;
     --BACK-COLOR7:#FFEEC2;
     --BACK-COLOR8:#E4E4E4;
+    --BACK-COLOR9:#CFEEFF;
 
     --ERROR-COLOR:#FF5C00;
     --KAKAO-COLOR:#FFD600;
     --POINT-COLOR1:#F9CD5C;
     --POINT-COLOR2:#FFC123;
+    --POINT-COLOR3:#00A3FF;
 }
 .mainColor {
     color:var(--MAIN-COLOR1) !important

@@ -1,13 +1,6 @@
 import { ACTIVE_PASS, ALARM, CHECK, CONCENTRATE, MORE, TIMER } from 'assets/images';
-import { FlexDiv } from 'components/div/Div';
-import { Icon } from 'components/icon';
-import { DeleteModal, MoreModal } from 'components/modal';
-import { Text } from 'components/text';
-import { MAIN_COLOR1, TEXT_COLOR2, TEXT_COLOR3 } from 'constants/color';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { SnackBar } from '.';
 
 const RoutineContent = ({ routine, selectedDay }) => {
 	const [open, setOpen] = useState({ more: false, delete: false, snack: false });
@@ -44,58 +37,46 @@ const RoutineContent = ({ routine, selectedDay }) => {
 
 	const deleteRoutine = (id) => {
 		// 삭제하기
-		console.log(id);
-		setSnackMessage('선택하신 루틴이 삭제되었습니다.');
-		setOpen((prevValue) => ({ ...prevValue, delete: false, snack: true }));
+		console.log(id)
+		setSnackMessage('선택하신 루틴이 삭제되었습니다.')
+		setOpen((prevValue) => ({ ...prevValue, delete: false, snack: true }))
 	};
 
 	return (
 		<div className='RoutineContentWrap'>
-			<div className='FlexDiv'>
-				<div className='FlexDiv'>
-					{/* <Text tag="MEDIUM20_FONT" paragraph={routine.name} style={{ marginRight: '4px' }} />
+			<div className='flexBetween'>
+				<div className='flexBetween'>
+					<h3 className='title'>
+						{routine.name}
+					</h3>
 					{(routine.complete || routine.pass) && (
-						<Icon src={routine.complete ? CHECK : ACTIVE_PASS} color={MAIN_COLOR1} />
-					)} */}
+						<img src={routine.complete ? CHECK : ACTIVE_PASS} />
+					)}
 				</div>
-				<Icon
+				<img
 					src={MORE}
 					onClick={() => setOpen((prevValue) => ({ ...prevValue, more: true }))}
 					style={{ cursor: 'pointer' }}
 				/>
 			</div>
-			<Text
-				paragraph={routine.time}
-				color={TEXT_COLOR2}
-				style={{ marginBottom: '16px', fontWeight:'400', fontSize:14 }}
-			/>
-			<FlexDiv style={{ height: '24px', justifyContent: 'space-between' }}>
-				<FlexDiv>
+			<p className='text__date' style={{ marginBottom: '16px', fontWeight:'400', fontSize:14 }}>
+				{routine.time}
+			</p>
+			<div style={{ height: '24px', justifyContent: 'space-between' }}>
+				<div className='routine__day__outer'>
 					{routine.days.map((day, i) => (
-						<Text
-							width={20}
-							height={20}
-							key={i}
-							tag="MEDIUM12_FONT"
-							color={day === selectedDay ? MAIN_COLOR1 : TEXT_COLOR3}
-							paragraph={day}
-							style={{
-								border: `1px solid ${TEXT_COLOR3}`,
-								marginRight: '4px',
-								borderRadius: '10px',
-								textAlign: 'center',
-								...(day === selectedDay ? { border: `1px solid ${MAIN_COLOR1}` } : {}),
-							}}
-						/>
+						<div className='routine__day' key={i}>
+							<span className={day === selectedDay?'active':''}>{day}</span>
+						</div>
 					))}
-				</FlexDiv>
-				<FlexDiv>
-					<ALARM color={routine.alarm ? MAIN_COLOR1 : TEXT_COLOR3} />
-					<TIMER color={routine.timer ? MAIN_COLOR1 : TEXT_COLOR3} />
-					<CONCENTRATE color={routine.concentrate ? MAIN_COLOR1 : TEXT_COLOR3} />
-				</FlexDiv>
-			</FlexDiv>
-			{open.more && (
+				</div>
+				<div>
+					<ALARM color={routine.alarm ?true:false} />
+					<TIMER color={routine.timer ?true:false} />
+					<CONCENTRATE color={routine.concentrate ?true:false} />
+				</div>
+			</div>
+			{/* {open.more && (
 				<MoreModal
 					id={routine.id}
 					pass={routine.pass}
@@ -119,7 +100,7 @@ const RoutineContent = ({ routine, selectedDay }) => {
 					closeModal={() => setOpen((prevValue) => ({ ...prevValue, delete: false }))}
 					deleteRoutine={deleteRoutine}
 				/>
-			)}
+			)} */}
 		</div>
 	);
 };

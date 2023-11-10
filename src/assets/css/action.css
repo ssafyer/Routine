@@ -513,3 +513,173 @@ i.ico__check {
     margin-left: 10px !important;
     margin-right: 5px !important;
 }
+
+.page__end__routine {
+    text-align: center;
+}
+.page__end__routine img {
+    width: 141px;
+    margin-top: 50%;
+}
+.page__end__routine p {
+    font-size:23px;
+    margin-top: 110px;
+}
+.page__write__review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    height: calc(100vh - 30px);
+}
+.page__write__review__inner {
+    width: 100%;
+}
+.page__write__review h2 {
+    font-size:25px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.page__write__review textarea {
+    width: 100%;
+    height: 216px;
+    border-radius: 16px;
+    background: var(--BACK-COLOR4);
+    resize:none;
+    border:0;
+    padding: 20px;
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+    font-size:15px;
+    color:var(--TEXT-COLOR4);
+}
+.page__write__review textarea::placeholder {
+    color:var(--TEXT-COLOR4);
+}
+.page__write__review .btnbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.page__write__review .btnbox button.active {
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+}
+.btn__share {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.result__data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+    background: var(--BACK-COLOR4);
+    box-shadow:3px 3px 8px 4px rgba(0,0,0,0.08);
+    width:90%;
+    margin:20px auto;
+    border-radius: 16px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+.result__data>div {
+    text-align: center;
+}
+.result__data>div h3 {
+    color:var(--TEXT-COLOR4);
+    font-size:18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.result__data>div strong {
+    font-size:18px;
+    font-weight: bold;
+}
+
+.result__actionbox {}
+.result__actionbox .box {}
+.result__actionbox .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.result__actionbox .left img {
+    margin-right: 10px !important;
+}
+.result__actionbox .left .text {}
+.result__actionbox .left .text .name {
+    color:var(--TEXT-COLOR4);
+    font-size:14px;
+    margin-bottom: 5px !important;
+}
+.result__actionbox .left .text .btm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.result__actionbox .left .text .btm img {
+    margin-right: 5px !important;
+}
+.result__actionbox .left .text .btm b {
+    color:var(--POINT-COLOR3);
+    font-size:14px;
+}
+.result__actionbox .inputType1 {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+.result__actionbox .mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 21px;
+    line-height: 21px;
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+    border-radius: 16px;
+    font-size:10px;
+}
+.processbtmbox {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.processbtmbox span {
+    display: inline-block;
+    width: 24px;
+    height: 8px;
+    background: var(--BACK-COLOR9);
+    border-radius: 10px;
+}
+.processbtmbox span.active {
+    width: 48px;
+    background: var(--POINT-COLOR3);
+}
+
+.formbox.retrospect {}
+.formbox.retrospect * {
+    font-size:14px;
+}
+.formbox.retrospect h2 {
+    font-size:15px;
+}
+.formbox.retrospect h3 {}
+.formbox.retrospect .comment {}
+.formbox.retrospect .txtLeft {
+    text-align: left;
+    font-size:20px;
+}
+.formbox.retrospect .txtRight {
+    text-align: right;
+    font-size:20px;
+}
+.formbox.retrospect .txtIndent {
+    padding-left: 17px;
+}

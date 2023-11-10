@@ -1,5 +1,4 @@
 import 'assets/css/App.css';
-import Home from 'pages/Home';
 import {
   Routes,
   Route,
@@ -24,6 +23,13 @@ import GoalInput from 'pages/GoalInput';
 import ExecutionCheck from 'pages/ExecutionCheck';
 import ExecutionTimer from 'pages/ExecutionTimer';
 import ExecutionConfirm from 'pages/ExecutionConfirm';
+import EndRoutine from 'pages/EndRoutine';
+import WriteReview from 'pages/WriteReview';
+import ResultInfo from 'pages/ResultInfo';
+import DailyBoard from 'pages/DailyBoard';
+import Home from 'pages/Home';
+import Recommend from 'pages/Recommend';
+import More from 'pages/More';
 
 function App() {
 
@@ -32,8 +38,10 @@ function App() {
       <Wrapper>
         <ScrollTop />
         <Routes>
-          {/* <Route path="/" element={<Home />} exact /> */}
-          {/* <Route path="/main" element={<Main />}  /> */}
+          <Route path="/" element={<Home />} exact />
+          <Route path="/main" element={<Main />}  />
+          <Route path="/recommend" element={<Recommend />}  />
+          <Route path="/more" element={<More />}  />
           <Route path="/signup" element={<Signup />}  />
           <Route path="/signup_step1" element={<SignupStep1 />}  />
           <Route path="/signup_step2" element={<SignupStep2 />}  />
@@ -50,6 +58,10 @@ function App() {
           <Route path="/execution_check" element={<ExecutionCheck />}  />
           <Route path="/execution_timer" element={<ExecutionTimer />}  />
           <Route path="/execution_confirm" element={<ExecutionConfirm />}  />
+          <Route path="/end_routine" element={<EndRoutine />}  />
+          <Route path="/write_review" element={<WriteReview />}  />
+          <Route path="/result_info" element={<ResultInfo />}  />
+          <Route path="/daily_board" element={<DailyBoard />}  />
         </Routes>
       </Wrapper>
     </BrowserRouter>

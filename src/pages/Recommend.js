@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { LOGO } from 'assets/images';
 import NavBar from 'components/navigation/NavBar';
 import icoArrow from '../assets/images/Arrow.svg'
-import RoutineContent from 'components/contents/RoutineContent';
 
 
 const DUMMY_DATA = [
@@ -59,7 +58,7 @@ const selectValueData = [
 ]
 
 
-function Main() {
+function Recommend() {
     const userId = useSelector((state) => {
 		return state.user.value.userId;
 	});
@@ -75,8 +74,6 @@ function Main() {
 	useEffect(() => {
 		setRoutineList(DUMMY_DATA);
 	}, []);
-
-
 	return (
         <section className="page__main">
             <header className='main__header'>
@@ -101,18 +98,9 @@ function Main() {
 					</div>
                 </div>
             </header>
-
-
-			{userId && routineList.length > 0 ? (
-				routineList.map((routine) => (
-					<RoutineContent key={routine.id} routine={routine} selectedDay="화" />
-				))
-			) : (
-				<div></div>
-			)}
 			<NavBar />
         </section>
     )
 }
 
-export default Main;
+export default Recommend;
