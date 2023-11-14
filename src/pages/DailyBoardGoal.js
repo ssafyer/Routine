@@ -19,10 +19,11 @@ const categoryData = [
     '목표',
 ]
 
-function DailyBoard({setIsRemovePadding}) {
+function DailyBoardGoal({setIsRemovePadding}) {
     setIsRemovePadding(true)
+
     const navigate = useNavigate()
-    const [categoryChoice, setCategoryChoice] = useState(0);
+    const [categoryChoice, setCategoryChoice] = useState(2);
     const [isShowDailyPopup, setIsShowDailyPopup] = useState(false);
     const [dailyCalendar, setDailyCalendar] = useState(new Date());
     const formatDay = (locale, date) => {
@@ -92,55 +93,6 @@ function DailyBoard({setIsRemovePadding}) {
                     }
                 </div>
 
-                <div className="formbox actionType summary">
-                    <div className="flexBetween top">
-                        <h3>루틴 요약</h3>
-                        <button>더보기</button>
-                    </div>
-                    <p>해낸 루틴 : 3개</p>
-                    <div className="flexBetween processbar">
-                        <img src={icoNotSmile} alt="smile" />
-                        <div className="process">
-                            <span style={{width:'20%'}}></span>
-                        </div>
-                        <img src={icoSmile} alt="smile" />
-                    </div>
-
-                    <div className="h25"></div>
-
-                    <p>해낸 행동 : 24개</p>
-                    <div className="flexBetween processbar">
-                        <img src={icoNotSmile} alt="smile" />
-                        <div className="process">
-                        <span style={{width:'80%'}}></span>
-                        </div>
-                        <img src={icoSmile} alt="smile" />
-                    </div>
-                </div>
-
-                <div className="h25"></div>
-
-                <div className="formbox retrospect">
-                    <h2>회고</h2>
-                    <h3 className='mainColor'>[루틴 이름]</h3>
-                    <div className="comment">
-                        <p className='mainColor txtLeft'>"</p>
-                        <p className='txtIndent'>
-                            해당 루틴이 끝나고 사용자가 적은 회고 내용이 들어갑니다.<br />
-                            텍스트의 색상 및 크기도 조정이 필요한 것 같습니다.
-                        </p>
-                        <p className='mainColor txtRight'>"</p>
-                    </div>
-
-                    <div className="processbtmbox">
-                        <span className='active'></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-
                 <div className="formbox__item2">
                     <div className="formbox">
                         <h2>몰입도</h2>
@@ -153,20 +105,6 @@ function DailyBoard({setIsRemovePadding}) {
                                 }}
                             >
                                 <span>78%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="formbox">
-                        <h2>목표 달성률</h2>
-                        <div className="routinechart">
-                            <div className="routinechart__bar"
-                                style={{
-                                    background:
-                                    `conic-gradient(var(--POINT-COLOR2) ${percentToDegrees(58)}deg,
-                                    var(--BACK-COLOR7) 50deg)`
-                                }}
-                            >
-                                <span>58%</span>
                             </div>
                         </div>
                     </div>
@@ -235,4 +173,4 @@ function DailyBoard({setIsRemovePadding}) {
         </div>
     );
 }
-export default DailyBoard;
+export default DailyBoardGoal;

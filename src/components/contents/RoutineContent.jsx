@@ -1,11 +1,14 @@
 import { ACTIVE_PASS, ALARM, CHECK, CONCENTRATE, MORE, TIMER } from 'assets/images';
+import MoreModal from 'components/modal/MoreModal';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SnackBar from './SnackBar';
+import PopupToast from 'components/include/PopupToast';
+import DeleteModal from 'components/modal/DeleteModal';
 
 const RoutineContent = ({ routine, selectedDay }) => {
 	const [open, setOpen] = useState({ more: false, delete: false, snack: false });
 	const [snackMessage, setSnackMessage] = useState('');
-
 	const navigate = useNavigate();
 
 	const choiceItem = (id, value) => {
@@ -62,7 +65,7 @@ const RoutineContent = ({ routine, selectedDay }) => {
 			<p className='text__date' style={{ marginBottom: '16px', fontWeight:'400', fontSize:14 }}>
 				{routine.time}
 			</p>
-			<div style={{ height: '24px', justifyContent: 'space-between' }}>
+			<div className='btmItems'>
 				<div className='routine__day__outer'>
 					{routine.days.map((day, i) => (
 						<div className='routine__day' key={i}>
@@ -76,7 +79,7 @@ const RoutineContent = ({ routine, selectedDay }) => {
 					<CONCENTRATE color={routine.concentrate ?true:false} />
 				</div>
 			</div>
-			{/* {open.more && (
+			{open.more && (
 				<MoreModal
 					id={routine.id}
 					pass={routine.pass}
@@ -100,7 +103,7 @@ const RoutineContent = ({ routine, selectedDay }) => {
 					closeModal={() => setOpen((prevValue) => ({ ...prevValue, delete: false }))}
 					deleteRoutine={deleteRoutine}
 				/>
-			)} */}
+			)}
 		</div>
 	);
 };

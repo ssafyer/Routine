@@ -8,12 +8,16 @@ import icoCheckOff from '../assets/images/ico_check_off_gold.svg'
 import imgEdit1 from '../assets/images/img_edit1.png'
 import imgEdit2 from '../assets/images/img_edit2.png'
 import imgEdit3 from '../assets/images/img_edit3.png'
+import arrowDown from '../assets/images/arrow_down.svg'
 import { Link, useNavigate } from 'react-router-dom';
+import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
 
 
 function ResultInfo() {
     const navigate = useNavigate()
     const [ended, setEnded] = useState(true); // 최종 완료 버튼
+    const [isShowRoutinePopup, setsShowRoutinePopup] = useState(false);
+    const [choiceRoutine, setChoiceRoutine] = useState(0);
 
     return (
         <>
@@ -21,7 +25,45 @@ function ResultInfo() {
                 <button className="btn__back" onClick={() => navigate(-1)}>
                     <img src={imgBack} alt="뒤로가기" />
                 </button>
-                <h1>루틴 이름</h1>
+                <h1>
+                    루틴 이름
+                    <button onClick={() => setsShowRoutinePopup(true)}>
+                        <img src={arrowDown} className='title_arrow' alt="down" />
+                    </button>
+                    <PopupBtmWrapper
+                        className={'routineChoice'}
+                        isShow={isShowRoutinePopup}
+                        setIsShow={setsShowRoutinePopup}
+                        title={'루틴 선택'}
+                    >
+                        <div className="top__btn">
+                            <button
+                                onClick={() => setsShowRoutinePopup(false)}
+                            >취소</button>
+                            <button className='mainColor'
+                                onClick={() => setsShowRoutinePopup(false)}
+                            >완료</button>
+                        </div>
+                        <div className="btnbox">
+                            <button
+                                onClick={() => setChoiceRoutine(0)}
+                                className={choiceRoutine==0?'active':''}>
+                                    아침 기상
+                            </button>
+                            <button
+                                onClick={() => setChoiceRoutine(1)}
+                                className={choiceRoutine==1?'active':''}>
+                                    오전 업무
+                            </button>
+                            <button
+                                onClick={() => setChoiceRoutine(2)}
+                                className={choiceRoutine==2?'active':''}>
+                                    오후 업무
+                            </button>
+                        </div>
+                    </PopupBtmWrapper>
+                </h1>
+
                 <button className='btn__share'>
                     <img src={icoShare} alt="share" />
                 </button>
@@ -134,8 +176,6 @@ function ResultInfo() {
                         <p className='mainColor txtRight'>"</p>
                     </div>
                 </div>
-
-
 
                 {
                     ended ? (

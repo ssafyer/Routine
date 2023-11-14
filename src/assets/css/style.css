@@ -8,6 +8,7 @@
     --TEXT-COLOR3:#BABABA;
     --TEXT-COLOR4:#8F8F8F;
     --TEXT-COLOR5:#747474;
+    --TEXT-COLOR6:#AFAFAF;
 
     --BACK-COLOR1:#8F8F8F;
     --BACK-COLOR2:#F5F5F5;
@@ -18,6 +19,10 @@
     --BACK-COLOR7:#FFEEC2;
     --BACK-COLOR8:#E4E4E4;
     --BACK-COLOR9:#CFEEFF;
+    --BACK-COLOR10:#FFF9F0;
+    --BACK-COLOR11:#FFCD4E;
+    --BACK-COLOR12:#F6F6F6;
+    --BACK-COLOR13:#EDEBE8;
 
     --ERROR-COLOR:#FF5C00;
     --KAKAO-COLOR:#FFD600;
@@ -25,6 +30,7 @@
     --POINT-COLOR2:#FFC123;
     --POINT-COLOR3:#00A3FF;
 }
+
 .mainColor {
     color:var(--MAIN-COLOR1) !important
 }
@@ -187,7 +193,7 @@ button.fakeSelect {
     display: flex;
 	align-items: center;
 	box-sizing: border-box;
-    width:calc(50% - 60px);
+    width:30%;
     justify-content: space-between;
 }
 .navbar .button__add {
@@ -229,14 +235,6 @@ button.fakeSelect {
 	position: relative;
 }
 
-.AddSelectModal button {
-
-}
-@keyframes slideIn {
-    0% {}
-    100% {}
-}
-
 /* toggleSwitch */
 .toggleSwitch {
     width: 32px;
@@ -263,9 +261,6 @@ button.fakeSelect {
 .toggleSwitch.active span {
     left:16px
 }
-
-
-
 .popup__question__info {
     position: absolute;
     background: #fff;
@@ -303,4 +298,11 @@ button.fakeSelect {
     color:var(--TEXT-COLOR4);
     letter-spacing: -0.5px;
     line-height: 1.6;
+}
+
+.removePadding {
+	padding: 0;
+}
+button {
+    cursor:pointer;
 }

@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
+  useLocation,
 } from 'react-router-dom';
 import ScrollTop from 'components/include/ScrollTop';
 import Wrapper from 'components/include/Wrapper';
@@ -30,18 +31,25 @@ import DailyBoard from 'pages/DailyBoard';
 import Home from 'pages/Home';
 import Recommend from 'pages/Recommend';
 import More from 'pages/More';
+import MainNoneList from 'pages/MainNoneList';
+import Search from 'pages/Search';
+import { useEffect, useState } from 'react';
+import DailyBoardRoutine from 'pages/DailyBoardRoutine';
+import DailyBoardGoal from 'pages/DailyBoardGoal';
+import Request from 'pages/Request';
 
 function App() {
+  const [isRemovePadding, setIsRemovePadding] = useState(null);
 
   return (
     <BrowserRouter>
-      <Wrapper>
+      <Wrapper isRemovePadding={isRemovePadding} setIsRemovePadding={setIsRemovePadding}>
         <ScrollTop />
         <Routes>
           <Route path="/" element={<Home />} exact />
           <Route path="/main" element={<Main />}  />
+          <Route path="/main_none_list" element={<MainNoneList />}  />
           <Route path="/recommend" element={<Recommend />}  />
-          <Route path="/more" element={<More />}  />
           <Route path="/signup" element={<Signup />}  />
           <Route path="/signup_step1" element={<SignupStep1 />}  />
           <Route path="/signup_step2" element={<SignupStep2 />}  />
@@ -51,17 +59,22 @@ function App() {
           <Route path="/add_action_before_edit" element={<AddActionBeforeEdit />}  />
           <Route path="/add_action_after_edit" element={<AddActionAfterEdit />}  />
           <Route path="/add_action_before_edit2" element={<AddActionAfterEdit2 />}  />
-          <Route path="/goal_none" element={<GoalNone />}  />
-          <Route path="/goal" element={<Goal />}  />
-          <Route path="/goal_remove" element={<GoalRmove />}  />
-          <Route path="/goal_input" element={<GoalInput />}  />
+          <Route path="/goal" element={<Goal />} />
+          <Route path="/goal_none" element={<GoalNone />} />
+          <Route path="/goal_remove" element={<GoalRmove />} />
+          <Route path="/goal_input" element={<GoalInput />} />
           <Route path="/execution_check" element={<ExecutionCheck />}  />
           <Route path="/execution_timer" element={<ExecutionTimer />}  />
           <Route path="/execution_confirm" element={<ExecutionConfirm />}  />
           <Route path="/end_routine" element={<EndRoutine />}  />
           <Route path="/write_review" element={<WriteReview />}  />
           <Route path="/result_info" element={<ResultInfo />}  />
-          <Route path="/daily_board" element={<DailyBoard />}  />
+          <Route path="/search" element={<Search />}  />
+          <Route path="/daily_board" element={<DailyBoard setIsRemovePadding={setIsRemovePadding} />}  />
+          <Route path="/daily_board_routine" element={<DailyBoardRoutine setIsRemovePadding={setIsRemovePadding} />}  />
+          <Route path="/daily_board_goal" element={<DailyBoardGoal setIsRemovePadding={setIsRemovePadding} />}  />
+          <Route path="/more" element={<More />}  />
+          <Route path="/request" element={<Request setIsRemovePadding={setIsRemovePadding} />}  />
         </Routes>
       </Wrapper>
     </BrowserRouter>

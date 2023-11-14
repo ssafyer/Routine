@@ -1,0 +1,136 @@
+@charset "utf-8";
+.page__more {
+    padding-bottom: 120px;
+}
+.page__more h2 {
+    font-size:25px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color:#454545;
+}
+.formbox.userinfo .userinfo__title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.formbox.userinfo .userinfo__title span {
+    font-size:18px;
+}
+.formbox.userinfo .userinfo__title img {
+    margin-left: 20px;
+}
+.formbox.userinfo .userinfo__subtext {
+    color:var(--MAIN-COLOR1);
+    margin-top: 10px;
+    font-size:14px;
+}
+.formbox__item2.type2 .formbox {
+    min-height:92px;
+    text-align: center;
+}
+.formbox__item2.type2>div h2 {
+    font-size:15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.formbox__item2.type2>div img {
+    margin:10px 0;
+}
+.formbox.eventsafe {}
+.formbox.eventsafe li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.id__copy {
+    background: var(--BACK-COLOR13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius:4px;
+    width: 102px;
+}
+.id__copy span {
+    font-size:10px;
+    margin-right: 5px;
+}
+.formbox.userinfo .name {
+    font-size:18px;
+    color:var(--TEXT-COLOR1);
+    margin-bottom: 20px;
+}
+.request__visual {
+    height: 215px;
+    position: relative;
+}
+.request__visual .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:90px;
+    left:0;
+    width:100%;
+    height: 30px;
+}
+.request__visual .text button {
+    position: absolute;
+    left:20px;
+}
+.request__visual .text h2 {
+    font-size:26px;
+    color:#fff;
+}
+.request__visual .img__request {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.request__outer {
+    position: relative;
+    top: -40px;
+    padding:0 15px;
+}
+.formbox.request {}
+.formbox.request h2 * {
+    font-size:15px;
+}
+.formbox.request h2 span {
+    color:var(--TEXT-COLOR5);
+}
+.formbox.request p {
+    font-size:15px;
+    color:var(--TEXT-COLOR4);
+    margin-top: 20px;
+}
+.formbox.request b {
+    font-size:15px;
+}
+
+.page__request h3 {
+    font-size:15px;
+}
+.formbox__item2.type2.other {
+    margin-top: 10px;
+}
+
+.btn__btm__request {
+    bottom:10px;
+    left: 10px;
+    width: 100%;
+    background: var(--MAIN-COLOR1);
+    color:#fff;
+    font-size:18px;
+    font-weight: bold;
+    padding: 17px 0;
+    border-radius: 10px;
+    box-shadow:0 2px 4px 1px rgba(0,0,0,0.2);
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
+    position: sticky;
+    margin-top: 50px;
+}
