@@ -130,7 +130,7 @@
 	color:rgb(155, 155, 155);
 }
 .fakeSelect__wrap {
-	padding: 4px;
+	padding: 0;
 }
 .topSideButton * {
 	font-weight: 500 !important;
@@ -553,7 +553,7 @@
 .page__daliyboard .board__body {
 	border-radius: 15px 15px 0 0;
 	background: var(--BACK-COLOR12);
-	padding:  0 15px 120px;
+	padding:  0 0 120px;
 }
 
 .page__daliyboard .action__category label.active {
@@ -609,7 +609,6 @@
 	align-items: center;
 	flex-wrap:wrap;
 	gap: 25px;
-	margin-top: 25px;
 }
 .formbox__item2>div {
 	width:calc(50% - 12.5px);
@@ -691,4 +690,8 @@
 	align-items: center;
 	font-size:16px;
 	font-weight: bold;
+}
+
+.swiper__dailyboard {
+	padding:15px !important;
 }

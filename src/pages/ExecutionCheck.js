@@ -6,11 +6,43 @@ import icoExecCheckOn from '../assets/images/ico_exec_check_on.svg'
 import icoExecNext from '../assets/images/ico_exec_next.svg'
 import icoExecList from '../assets/images/ico_exec_list.svg'
 import icoExecMemo from '../assets/images/ico_exec_memo.svg'
+import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
+import emoji1 from '../assets/images/emoji1.svg'
+import emoji2 from '../assets/images/emoji2.svg'
+import emoji3 from '../assets/images/emoji3.svg'
+
+const categoryData = [
+    '전체',
+    '아침',
+    '저녁',
+    '집중 시간',
+    '건강',
+    '건강',
+    '건강',
+    '건강',
+]
+
+const emojiData = [
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+    emoji1,
+    emoji2,
+    emoji3,
+]
+
 
 
 function ExecutionCheck() {
     const navigate = useNavigate()
-
+    const [isShowEmojiPopup, setIsShowEmojiPopup] = useState(false);
+    const [categoryChoice, setCategoryChoice] = useState(0);
 
     return (
         <>
@@ -23,7 +55,7 @@ function ExecutionCheck() {
 
                     <div className="h50"></div>
 
-                    <div className='setEmojibox' style={{background:'#e4e4e4'}}>
+                    <div className='setEmojibox' style={{background:'#e4e4e4'}}  onClick={() => setIsShowEmojiPopup(true)}>
                         <img src={imgAction} alt="img" />
                     </div>
                 </div>
@@ -51,6 +83,36 @@ function ExecutionCheck() {
                     </button>
                 </div>
             </div>
+
+            <PopupBtmWrapper
+                className={'emoji'}
+                isShow={isShowEmojiPopup}
+                setIsShow={setIsShowEmojiPopup}
+            >
+                <div className="action__category">
+                    {
+                        categoryData.map((item, index) =>
+                            <label
+                                key={index}
+                                className={categoryChoice==index?'active':''}
+                                onClick={() => setCategoryChoice(index)}
+                            >
+                                <input type="radio" name="category" />
+                                {item}
+                            </label>
+                        )
+                    }
+                </div>
+                <div className="emoji__outer">
+                    {
+                        emojiData.map((item,index) =>
+                            <div className="emoji__inner">
+                                <img key={index} src={item} alt="emoji" />
+                            </div>
+                        )
+                    }
+                </div>
+            </PopupBtmWrapper>
         </>
     );
 }

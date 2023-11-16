@@ -91,7 +91,7 @@ function DailyBoardRoutine({setIsRemovePadding}) {
                         )
                     }
                 </div>
-
+                
                 <div className="formbox__item2">
                     <div className="formbox">
                         <h2>몰입도</h2>

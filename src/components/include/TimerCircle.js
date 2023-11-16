@@ -4,25 +4,23 @@ import React, {useState, useEffect} from 'react';
     1. value와 maxValue를 지정하면 그 값을 백분율로 계산해 타이머의 길이를 계산합니다.
     2. useEffect에서 매초마다 타이머를 진행시킵니다.
 */
-const TimerCircle2 = ({value, maxValue}) => {
+const TimerCircle = ({value, maxValue, isPaused, isTimeReset , timerEnded }) => {
     const [percentage, setPercentage] = useState(0);
-
-    // 백분율로 계산
-    useEffect(() => {
-        if (maxValue > 0) {
-            const newPercentage = (value / maxValue) * 100;
-            setPercentage(newPercentage);
-        }
-    }, [value, maxValue]);
 
     /* 타이머 */
     useEffect(() => {
-        const interval = setInterval(() => {
-            setPercentage((prev) => (prev + 1) % 101);
-        }, 1000);
-
-        return() => clearInterval(interval);
-    }, []);
+        let interval;
+        if (!isPaused) {
+            interval = setInterval(() => {
+                setPercentage((prev) => (prev + (100 / maxValue)) % 101);
+            }, 1000);
+        }
+        if (timerEnded || !isTimeReset) {
+            clearInterval(interval);
+            setPercentage(0)
+        }
+        return () => clearInterval(interval);
+    }, [isPaused, maxValue, isTimeReset, timerEnded, percentage]);
 
     const size = 332;
     const stroke = 7;
@@ -30,7 +28,7 @@ const TimerCircle2 = ({value, maxValue}) => {
     const circumference = 2 * Math.PI * radius;
     const strokeDasharray = `${ (percentage / 100) * circumference} ${circumference}`;
 
-    const angle = (percentage / 100) * 360;
+    const angle = Math.min(percentage * 3.6, 360);
     const angleRad = (angle - 90) * (Math.PI / 180);
     const pointX = size / 2 + radius * Math.cos(angleRad); // X coordinate
     const pointY = size / 2 + radius * Math.sin(angleRad); // Y coordinate
@@ -77,4 +75,4 @@ const TimerCircle2 = ({value, maxValue}) => {
     );
 };
 
-export default TimerCircle2;
+export default TimerCircle;

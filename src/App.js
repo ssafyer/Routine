@@ -37,6 +37,7 @@ import { useEffect, useState } from 'react';
 import DailyBoardRoutine from 'pages/DailyBoardRoutine';
 import DailyBoardGoal from 'pages/DailyBoardGoal';
 import Request from 'pages/Request';
+import SearchTest from 'pages/SearchTest';
 
 function App() {
   const [isRemovePadding, setIsRemovePadding] = useState(null);
@@ -71,10 +72,12 @@ function App() {
           <Route path="/result_info" element={<ResultInfo />}  />
           <Route path="/search" element={<Search />}  />
           <Route path="/daily_board" element={<DailyBoard setIsRemovePadding={setIsRemovePadding} />}  />
-          <Route path="/daily_board_routine" element={<DailyBoardRoutine setIsRemovePadding={setIsRemovePadding} />}  />
-          <Route path="/daily_board_goal" element={<DailyBoardGoal setIsRemovePadding={setIsRemovePadding} />}  />
+          {/* <Route path="/daily_board_routine" element={<DailyBoardRoutine setIsRemovePadding={setIsRemovePadding} />}  />
+          <Route path="/daily_board_goal" element={<DailyBoardGoal setIsRemovePadding={setIsRemovePadding} />}  /> */}
           <Route path="/more" element={<More />}  />
           <Route path="/request" element={<Request setIsRemovePadding={setIsRemovePadding} />}  />
+
+          <Route path="/search_test" element={<SearchTest />}  />
         </Routes>
       </Wrapper>
     </BrowserRouter>

@@ -136,6 +136,9 @@ button.fakeSelect {
     position: absolute;
     width: 100%;
     top: 50px;
+    left: 0;
+    max-height: 130px;
+    overflow: auto;
     z-index: 1;
 }
 .fakeSelect__options span {
@@ -306,3 +309,19 @@ button.fakeSelect {
 button {
     cursor:pointer;
 }
+/* 
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+}
+*::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+} */

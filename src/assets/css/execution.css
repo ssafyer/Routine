@@ -2,14 +2,14 @@
 
 .page__exec {
     text-align: center;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 .page__exec .timeText {
     font-size:50px;
     font-weight: bold;
     color:var(--TEXT-COLOR1);
-    margin:0 auto;
-    height: 70px;
+    margin:20px auto 15px;
+    line-height: 0.7;
 }
 .page__exec .subtimeText {
     font-size:17px;
@@ -27,8 +27,9 @@
 }
 .exec__btnbox {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap:30px;
 }
 .exec__btnbox button {
     display: flex;
@@ -54,11 +55,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 30px;
+    left:calc(50% - 164.5px);
+    width:329px;
 }
 .timer__circle {
     position: absolute;
-    top:40px;
-    left: -23px;
+    top:30px;
+    left: 30px;
 }
 .timer__circle #circle-container {
     position: relative;
@@ -79,6 +84,9 @@
 }
 .header__routine.exec {
     margin-bottom: 5px;
+}
+.header__routine.exec h1 {
+    text-align: center;
 }
 
 .popup.exec .action__btnbox {

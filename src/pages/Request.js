@@ -2,10 +2,16 @@ import imgRequest from '../assets/images/img_request.jpg'
 import icoBack from '../assets/images/ico_back_white.svg'
 import icoCall from '../assets/images/ico_call_gold.svg'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function Request({setIsRemovePadding}) {
     const navigate = useNavigate()
-    setIsRemovePadding(true)
+    useEffect(() => {
+        setIsRemovePadding(true)
+        return () => {
+            setIsRemovePadding(false)
+        }
+    }, [setIsRemovePadding]);
 
 	return (
         <section className="page__request">

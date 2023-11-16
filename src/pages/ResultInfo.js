@@ -11,13 +11,17 @@ import imgEdit3 from '../assets/images/img_edit3.png'
 import arrowDown from '../assets/images/arrow_down.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import PopupBtmWrapper from 'components/include/PopupBtmWrapper';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Pagination } from 'swiper/modules';
+import 'swiper/css';
 
 function ResultInfo() {
     const navigate = useNavigate()
     const [ended, setEnded] = useState(true); // 최종 완료 버튼
     const [isShowRoutinePopup, setsShowRoutinePopup] = useState(false);
     const [choiceRoutine, setChoiceRoutine] = useState(0);
+
+
 
     return (
         <>
@@ -44,7 +48,7 @@ function ResultInfo() {
                                 onClick={() => setsShowRoutinePopup(false)}
                             >완료</button>
                         </div>
-                        <div className="btnbox">
+                        {/* <div className="btnbox">
                             <button
                                 onClick={() => setChoiceRoutine(0)}
                                 className={choiceRoutine==0?'active':''}>
@@ -60,7 +64,32 @@ function ResultInfo() {
                                 className={choiceRoutine==2?'active':''}>
                                     오후 업무
                             </button>
-                        </div>
+                        </div> */}
+                        <Swiper
+                            direction={'vertical'}
+                            slidesPerView={3}
+                            spaceBetween={10}
+                            mousewheel={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            modules={[Mousewheel, Pagination]}
+                            className="swiper__routinename"
+                            centeredSlides={true}
+                        >
+                            <SwiperSlide>아침 기상</SwiperSlide>
+                            <SwiperSlide>오전 업무</SwiperSlide>
+                            <SwiperSlide>오후 업무</SwiperSlide>
+                            <SwiperSlide>아침 기상</SwiperSlide>
+                            <SwiperSlide>오전 업무</SwiperSlide>
+                            <SwiperSlide>오후 업무</SwiperSlide>
+                            <SwiperSlide>아침 기상</SwiperSlide>
+                            <SwiperSlide>오전 업무</SwiperSlide>
+                            <SwiperSlide>오후 업무</SwiperSlide>
+                            <SwiperSlide>아침 기상</SwiperSlide>
+                            <SwiperSlide>오전 업무</SwiperSlide>
+                            <SwiperSlide>오후 업무</SwiperSlide>
+                        </Swiper>
                     </PopupBtmWrapper>
                 </h1>
 

@@ -94,6 +94,11 @@ function SignupStep3() {
                                     <span onClick={() => handleAge('19')}>19</span>
                                     <span onClick={() => handleAge('18')}>18</span>
                                     <span onClick={() => handleAge('17')}>17</span>
+                                    <span onClick={() => handleAge('17')}>17</span>
+                                    <span onClick={() => handleAge('17')}>17</span>
+                                    <span onClick={() => handleAge('17')}>17</span>
+                                    <span onClick={() => handleAge('17')}>17</span>
+                                    <span onClick={() => handleAge('17')}>17</span>
                                 </div>
                             }
                         </div>

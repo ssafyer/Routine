@@ -3,7 +3,6 @@
 
 .daily__calendar {
 	z-index: 100 !important;
-	height: 460px;
 }
 .daily__calendar .content {
 	height:460px !important;
@@ -105,7 +104,9 @@
 	padding-left: 10px;
 }
 
-.popup.btm.routineChoice {}
+.popup.btm.routineChoice {
+	text-align: center;
+}
 .popup.btm.routineChoice button {
 	display: block;
 	text-align: center;

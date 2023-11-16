@@ -9,6 +9,7 @@ import icoExecMemo from '../assets/images/ico_exec_memo.svg'
 import icoExecPlay from '../assets/images/ico_exec_play.svg'
 import icoExecPause from '../assets/images/ico_exec_pause.svg'
 import icoExecPauseOn from '../assets/images/ico_exec_pause_on.svg'
+import icoExecPauseOnPlay from '../assets/images/ico_exec_pause_on_play.svg'
 import icoWrite from '../assets/images/ico_write.svg'
 
 import TimerCircle from 'components/include/TimerCircle';
@@ -117,7 +118,59 @@ function ExecutionConfirm() {
     const navigate = useNavigate()
     const [showPopup, setShowPopup] = useState(false);
     const [isShowListPopup, setIsShowListPopup] = useState(false);
+    const [showMemoPopup, setShowMemoPopup] = useState(false);
 
+    /******************************************
+     *  타이머
+     * ****************************************/
+    const [isTimeReset, setIsTimeReset] = useState(true);
+    const [isTimePause, setIsTimePause] = useState(true);
+
+    const [totalTime, setTotalTime] = useState(10);  // 초기 타이머 시간설정
+    const [elapsedTime, setElapsedTime] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    const [timerEnded, setTimerEnded] = useState(false);
+
+    // 경과 시간을 업데이트
+    useEffect(() => {
+        let interval;
+        if (!isPaused && elapsedTime < totalTime) {
+            interval = setInterval(() => {
+                setElapsedTime((prevTime) => prevTime + 1);
+            }, 1000);
+        } else if (elapsedTime >= totalTime) {
+            clearInterval(interval);
+            setTimerEnded(true);
+        }
+        return () => clearInterval(interval);
+    }, [elapsedTime, isPaused, totalTime]);
+
+    const handleStart = () => {
+        setIsPaused(false);
+        setIsTimeReset(true)
+    };
+    const handleReset = () => {
+        setElapsedTime(0);
+        setIsPaused(true);
+        setTimerEnded(false);
+        setIsTimeReset(false)
+    };
+
+    const handlePause = () => {
+        setIsPaused(!isPaused);
+        setIsTimePause(isTimePause?false:true)
+    };
+
+    const formatTime = (time) => {
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor((time % 3600) / 60);
+        const seconds = time % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    /******************************************
+     *  // 타이머
+     * ****************************************/
 
     /******************************************
      *  드래그
@@ -213,7 +266,7 @@ function ExecutionConfirm() {
 
     return (
         <>
-            <header className='header__routine action exec'>
+            <header className='header__routine exec'>
                 <button className="btn__back" onClick={() => navigate(-1)}>
                     <img src={imgBack} alt="뒤로가기" />
                 </button>
@@ -227,26 +280,42 @@ function ExecutionConfirm() {
                     </div>
 
                     <div className="timer__circle">
-                        <TimerCircle value={0} maxValue={100}  />
+                        <TimerCircle value={elapsedTime} 
+                            maxValue={totalTime} isPaused={isPaused} 
+                            isTimeReset={isTimeReset} timerEnded={timerEnded} 
+                        />
                     </div>
                 </div>
             </header>
             <div className="page__exec">
-                <div className="timeText">00:15:00</div>
-                <div className="subtimeText">+ 00:18:12</div>
+                <div className="timeText">{formatTime(totalTime - elapsedTime)}</div>
+                <div className="subtimeText">+ {formatTime(elapsedTime)}</div>
+
 
                 <div className="exec__btnbox">
-                    <button>
-                        {/* <img src={icoExecPlay} alt="check" /> */}
-                        <img src={icoExecPause} alt="check" />
+                    {
+                        !isTimeReset &&
+                        <button className='btn__time__start' onClick={() => handleStart()}>
+                            <img src={icoExecPlay} alt="check" />
+                        </button>
+                    }
+                    {
+                        isTimeReset &&
+                        <button className='btn__time__reset' onClick={() => handleReset()}>
+                            <img src={icoExecPause} alt="check" />
+                        </button>
+                    }
+                    <button className='btn__time__pause' onClick={() => handlePause()}>
+                        {
+                            isTimePause
+                            ? <img src={icoExecPauseOn} alt="check" />
+                            : <img src={icoExecPauseOnPlay} alt="check" />
+                        }
                     </button>
-                    <button>
-                        <img src={icoExecPauseOn} alt="check" />
-                    </button>
-                    <button>
+                    <button className='btn__time__check'>
                         <img src={icoExecCheckOn} alt="check" />
                     </button>
-                    <button onClick={() => setShowPopup(true)}>
+                    <button className='btn__time__next' onClick={() => setShowPopup(true)}>
                         <img src={icoExecNext} alt="next" />
                     </button>
                 </div>
@@ -257,7 +326,7 @@ function ExecutionConfirm() {
                     <button onClick={() => setIsShowListPopup(true)}>
                         <img src={icoExecList} alt="list" />
                     </button>
-                    <button>
+                    <button onClick={() => setShowMemoPopup(true)}>
                         <img src={icoExecMemo} alt="memo" />
                     </button>
                 </div>
@@ -344,6 +413,25 @@ function ExecutionConfirm() {
                     </div>
                 </PopupBtmWrapper>
 
+
+
+                <PopupBtmWrapper
+                    className={'writeMemo'}
+                    isShow={showMemoPopup}
+                    setIsShow={setShowMemoPopup}
+                    title={'메모 입력'}
+                >
+                    <div className="body">
+                        <h6>알림과 함께 읽을 메모를 입력해주세요.</h6>
+
+                        <textarea placeholder='메모 입력'></textarea>
+
+                        <div className="btnbox">
+                            <button onClick={() => setShowMemoPopup(false)}>취소</button>
+                            <button className='active'>완료</button>
+                        </div>
+                    </div>
+                </PopupBtmWrapper>
             </div>
         </>
     );

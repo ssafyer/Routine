@@ -194,6 +194,7 @@
     border-radius: 15px 15px 0 0;
     padding: 30px 25px 55px;
     transition-duration: .5s;
+    max-width: 480px;
 }
 .popup.btm .head {
     display: flex;
@@ -300,6 +301,9 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 30px;
+    position: fixed;
+    bottom:30px;
+    left:calc(50% - 75px)
 }
 
 .editbox {
@@ -344,6 +348,9 @@
     padding: 9px 0;
     margin-top: 120px;
     box-shadow: none;
+    position: fixed;
+    bottom: 30px;
+    left:calc(50% - 110px);
 }
 .btn__next.comment span {
     color:#fff;
@@ -435,8 +442,7 @@
     position: relative;
 }
 .header__routine.action .centerbox h1 {
-    margin-top: 16px;
-    color:var(--TEXT-COLOR2);
+    color:var(--TEXT-COLOR2) !important;
 }
 
 .btn__recommand__action {
@@ -658,7 +664,7 @@ i.ico__check {
     background: var(--BACK-COLOR9);
     border-radius: 10px;
 }
-.processbtmbox span.active {
+.processbtmbox span.swiper-pagination-bullet-active {
     width: 48px;
     background: var(--POINT-COLOR3);
 }
@@ -682,4 +688,21 @@ i.ico__check {
 }
 .formbox.retrospect .txtIndent {
     padding-left: 17px;
+}
+.swiper__routinename {
+    height:140px;
+    margin-top: 20px;
+}
+.swiper__routinename .swiper-wrapper>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:18px !important;
+    color:var(--TEXT-COLOR6);
+    font-weight: bold;
+}
+.swiper__routinename .swiper-wrapper>div.swiper-slide-active{
+    background: var(--BACK-COLOR7);
+    color:var(--TEXT-COLOR1) !important;
+    font-size:20px !important;
 }

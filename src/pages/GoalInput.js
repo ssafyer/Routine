@@ -60,6 +60,7 @@ function GoalInput() {
                     <div className='imgAction'>
                         <img src={imgAction} alt="img" />
                     </div>
+                    <div className="h20"></div>
                     <h1>목표 이름</h1>
                 </div>
             </header>
